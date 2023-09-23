@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<Object> menuItems = new List<Object>();
+
+    menuItems.Add(new
+    {
+        text = "Salary Tracker",
+        separator = true,
+    });
+    menuItems.Add(new
+    {
+        text = "Dashboard",
+        url = "/",
+        iconCss = "fa-solid fa-box"
+    });
+    menuItems.Add(new
+    {
+        text = "Categories",
+        url = "/Category",
+        iconCss= "fa-solid fa-folder-closed"
+    });
+    menuItems.Add(new
+    {
+        text = "Transactions",
+        url = "/Transaction",
+        iconCss= "fa-solid fa-arrow-right-arrow-left"
+    });
+    menuItems.Add(new
+    {
+        text = "Other Sites",
+        separator = true
+    });
+    menuItems.Add(new
+    {
+        text = "GistPage",
+        url = "#",
+        iconCss = "fa-solid fa-arrow-right-arrow-left"
+    });
+    menuItems.Add(new
+    {
+        text = "EverGreen Movies",
+        url = "#",
+        iconCss = "fa-solid fa-arrow-right-arrow-left"
+    });
+
+}
+
+<ejs-sidebar id="sidebar" width="290px" enableDock dockSize="100px">
+    <e-content-template>
+        <div class="logo-wrapper">
+            <div class="app-logo">
+                <img class="logo-pic" src="~/download.jpg" />
+            </div>
+            <div class="w-100"></div>
+             <i id="sidebar-toggler" class="fa-solid  2xl"></i>
+        </div>
+        <div class="profile-wrapper">
+            <img class="profile-pic" src="~/hidden leaf logo.jpg" />
+            <div class="titles d-flex flex-column ps-3">
+                <h3 class="mb-0">Salary App</h3>
+                <span class="">Sent Chizzy</span>
+            </div>
+        </div>
+
+        <ejs-menu id="menu" items="menuItems" orientation="Vertical"></ejs-menu>
+    </e-content-template>
+</ejs-sidebar>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function (){
+        dockBar = document.getElementById('sidebar').ej2_instances[0];
+        document.getElementById('sidebar-toggler').onclick = function() {
+            dockBar.toggle();
+        };
+    });
+</script>
